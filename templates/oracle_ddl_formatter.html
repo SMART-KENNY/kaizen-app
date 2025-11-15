@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ORACLE DDL Parser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/ora_ddl.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Oracle DDL Parser</h1>
+
+        <textarea id="ddl_input" placeholder="Paste your CREATE TABLE DDL here..."></textarea>
+
+        <button id="parse_btn">Parse</button>
+        <button id="download_btn" style="margin-left:10px;">Download</button>
+        <select id="typeSelector">
+            <option value="">Ingest as:</option>
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily OR Weekly OR Monthly</option>
+        </select>
+        <div id="result"></div>
+    </div>
+
+<script src="{{ url_for('static', filename='js/ora_ddl.js') }}"></script>
+</body>
+</html>

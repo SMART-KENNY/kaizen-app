@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaizen App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/main_page.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/tool-tip.css') }}">
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-background">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Welcome to KAIZEN</span>
+                    <span class="title-line gradient-text">select code phase</span>
+                </h1>
+                <!-- <p class="hero-subtitle">Explore powerful features designed for modern experiences</p> -->
+                 <!-- <div class="tooltip-container">
+                    <button id="tooltipBtn" class="tooltip-btn">💡</button>
+
+                    <div id="tooltip" class="tooltip">
+                        This is a modern clickable tooltip!
+                    </div>
+                </div> -->
+
+            </div>
+        </header>
+
+        <!-- Navigation Grid -->
+        <main class="container">
+            <div class="button-grid">
+
+                <!-- Card 1 -->
+                <a href="hive_ddl_formatter" class="card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">PARSER - Hive to Databricks</h3>
+                        <!-- <p class="card-description">parser for ddl.</p> -->
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+
+                <!-- Card 1 -->
+                <a href="oracle_ddl_formatter" class="card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">PARSER - Oracle to Databricks</h3>
+                        <!-- <p class="card-description">parser for ddl.</p> -->
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+
+                <!-- Card 1 -->
+                <a href="ddl_only_formatter" class="card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">PARSER - Fields only to Databricks</h3>
+                        <!-- <p class="card-description">parser for ddl.</p> -->
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+                
+                <!-- Card 1 -->
+                <a href="app_phase1" class="card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Phase 1</h3>
+                        <!-- <p class="card-description">This is the phas1 code we should not use this.... kenny won't recommend this but still a features.</p> -->
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="hourly" class="card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Serverless Minutes and Hourly</h3>
+                        <!-- <p class="card-description">this is still ongoing development... your feedback or testing matters let me know</p> -->
+                        <!-- <p class="card-description">your feedback or testing matters let me know</p> -->
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="daily" class="card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Serverless General or Daily</h3>
+                        <!-- <p class="card-description">this is still ongoing development... your feedback or testing matters let me know</p> -->
+                        <!-- <p class="card-description">your feedback or testing matters let me know</p> -->
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="reference" class="card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Reference</h3>
+                        <p class="card-description">for refernece pipelines</p>
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="notfound" class="card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Clusters Minutes and Hourly</h3>
+                        <p class="card-description">not yet implimented</p>
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+
+                <!-- Card 6 -->
+                <a href="notfound" class="card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Clusters General or Daily</h3>
+                        <p class="card-description">not yet implimented</p>
+                        <div class="card-arrow">→</div>
+                    </div>
+                </a>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Modern Dashboard. Crafted with care.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+<script src="{{ url_for('static', filename='js/tool-tip.js') }}"></script>
+</body>
+</html>

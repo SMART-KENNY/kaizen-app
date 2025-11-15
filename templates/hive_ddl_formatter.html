@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HIVE DDL Parser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/hive_ddl.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hive DDL Parser</h1>
+
+        <textarea id="ddlInput" placeholder="Paste your Hive DDL here..."></textarea>
+        <button id="parseBtn">Parse</button>
+        <button id="downloadBtn">Download</button>
+        <select id="typeSelector">
+            <option value="">Ingest as:</option>
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily OR Weekly OR Monthly</option>
+        </select>
+        <div id="result">
+            <div class="table-block">
+                <h3>Columns</h3>
+                <div class="table-container">
+                    <table id="columnsTable">
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Original Data Type</th>
+                                <th>Databricks Data Type</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="{{ url_for('static', filename='js/hive_ddl.js') }}"></script>
+</body>
+</html>
