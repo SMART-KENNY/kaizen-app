@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Field Type Parser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/ddl_only_formatter.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Field Type Parser</h1>
+
+    <textarea id="ddlInput" placeholder="Paste fieldname and datatype, one per line&#10;Example:&#10;txn_dttm string&#10;txn_hr int"></textarea>
+
+    <div>
+        <button id="parseBtn">Parse</button>
+        <button id="downloadBtn">Download CSV</button>
+        <select id="typeSelector">
+            <option value="">Ingest as:</option>
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily OR Weekly OR Monthly</option>
+        </select>
+    </div>
+
+    <table id="columnsTable">
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Original Type</th>
+                <th>Databricks Type</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script src="{{ url_for('static', filename='js/ddl_only_formatter.js') }}"></script>
+</body>
+</html>

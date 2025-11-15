@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>kAIzen</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/app_6.css') }}">
+</head>
+<body>
+
+</div>
+<header>
+  <div class="header-content">
+    <h1>🚀 Data - Tech kAIzen app</h1>
+    <p class="subtitle">Automate asset bundles</p>
+    <a href="/" class="home-button">Go Back Home</a>
+  </div>
+</header>
+
+<main class="main-container">
+
+
+  <!-- Configuration Panel -->
+  <section class="config-panel">
+    <h2>⚙️ Basic Configuration</h2>
+    <div class="config-grid">
+      <div class="input-group">
+        <label for="env_phase">Phase</label>
+        <select id="env_phase" disabled>
+          <option value="phase1">Phase 1 with clusters</option>
+          <option value="phase2" selected>Phase 2 serverless</option>
+          <option value="phase3">Phase 3 scripts</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="workspace">Workspace</label>
+        <input type="text" id="workspace" placeholder="wde" value="wde" class="fixedInput" readonly>
+      </div>
+      <div class="input-group">
+        <label for="tier">Tier layer</label>
+        <select id="tier" disabled class="fixedInput">
+          <option value=""></option>
+          <option value="bronze">Bronze</option>
+          <option value="silver">Silver</option>
+          <option value="gold">Gold</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="pipeline">Pipeline</label>
+        <input type="text" id="pipeline" placeholder="Enter pipeline name">
+      </div>
+      <div class="input-group">
+        <label for="data_domain">Data Domain</label>
+        <select id="data_domain" disabled  class="fixedInput">
+          <option value="ref" selected>REF - Reference</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="tier_suffix">Tier suffix</label>
+        <select id="tier_suffix" disabled class="fixedInput">
+          <option value=""></option>
+          <option value="_b">_b</option>
+          <option value="_s">_s</option>
+          <option value="_g">_g</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="frequency">Job frequency</label>
+        <select id="frequency">
+          <option value="daily" selected>daily</option>
+          <option value="weekly">weekly</option>
+          <option value="monthly">monthly</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="yaml_job_category">Job Category *</label>
+        <input type="text" id="yaml_job_category" placeholder="OPTIMA">
+      </div>
+    
+      <!-- <div class="input-group">
+        <label for="table_name">Table Name *</label>
+        <input type="text" id="table_name" value="table_name" placeholder="Enter table name">
+      </div> -->
+      <!-- <div class="input-group">
+        <label for="fallout_table_name">Fallout Table Name *</label>
+        <input type="text" id="fallout_table_name" placeholder="e.g., wde.cu_b.table_name">
+      </div> -->
+    </div>
+  </section>
+
+  <!-- Advanced Configuration Panel -->
+  <section class="config-panel">
+    <div class="collapsible-header" onclick="toggleSection('advancedConfig')">
+      <h2>🔧 Advanced Configuration</h2>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div id="advancedConfig" class="collapsible-content">
+      <div class="config-grid">
+      <div class="input-group">
+        <label for="application_name">Application Name *</label>
+        <input type="text" id="application_name" placeholder="e.g., OPTIMA - opt_email">
+      </div>
+        <div class="input-group">
+          <label for="s3_data_prefix">S3 Data Prefix *</label>
+          <input type="text" id="s3_data_prefix" placeholder="optima/opt_dly_cb_accountdocument/">
+        </div>
+        <div class="input-group">
+          <label for="s3_manifest_prefix">S3 Manifest Prefix *</label>
+          <input type="text" id="s3_manifest_prefix" placeholder="manifests/source_manifest/optima/opt_dly_cb_accountdocument/">
+        </div>
+        <div class="input-group">
+          <label for="sql_file_path">SQL File Path *</label>
+          <input type="text" class="fixedInput" id="sql_file_path" placeholder="path/to/sql/file.sql" readonly>
+        </div>
+        <div class="input-group">
+          <label for="file_format">File Format *</label>
+          <select id="file_format">
+            <option value="csv">CSV</option>
+            <option value="parquet">Parquet</option>
+            <option value="json">JSON</option>
+            <option value="txt">TXT</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="delimiter">Delimiter</label>
+          <input type="text" id="delimiter" placeholder="keep empty if not delimited file" maxlength="1">
+        </div>
+        <div class="input-group">
+          <label for="log_level">Log Level</label>
+          <select id="log_level">
+            <option value="DEBUG">DEBUG</option>
+            <option value="INFO">INFO</option>
+            <option value="WARNING">WARNING</option>
+            <option value="ERROR">ERROR</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="data_refresh_column_list">Data refresh column list</label>
+          <input type="text" id="data_refresh_column_list" placeholder="e.g. txn_date, file_name">
+        </div>
+      </div>
+
+
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Boolean Options</h3>
+      <div class="checkbox-grid">
+        <label class="checkbox-label">
+          <input type="checkbox" id="allow_duplicate_files_flag">
+          <span>Allow Duplicate Files</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="header_flag" checked>
+          <span>Header Flag</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="ignoreCorruptFiles">
+          <span>Ignore Corrupt Files</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="file_timestamp_partition_flag">
+          <span>File Timestamp Partition</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="partition_overwrite_flag" checked>
+          <span>Partition Overwrite</span>
+        </label>
+        <!-- <label class="checkbox-label">
+          <input type="checkbox" id="composite_key_level_fallout">
+          <span>Composite Key Level Fallout</span>
+        </label> -->
+      </div>
+
+      <!-- <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Downstream Configuration</h3>
+      <div class="config-grid">
+        <div class="input-group">
+          <label for="number_of_downstream_job_run_triggers">Downstream Job Triggers</label>
+          <input type="number" id="number_of_downstream_job_run_triggers" value="3" min="0">
+        </div>
+        <div class="input-group">
+          <label for="number_of_partition_sets_to_pass_in_downstream">Partition Sets to Pass</label>
+          <input type="number" id="number_of_partition_sets_to_pass_in_downstream" value="4" min="0">
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- Data Standardization Configuration -->
+  <section class="config-panel">
+    <div class="collapsible-header" onclick="toggleSection('standardizationConfig')">
+      <h2>📊 Data Standardization</h2>
+      <span class="toggle-icon">▼</span>
+    </div>
+    <div id="standardizationConfig" class="collapsible-content">
+      <p class="info-text">Configure timestamp and date standardization for your columns</p>
+      <div id="standardizationContainer" class="standardization-container"></div>
+      <!-- <button class="btn btn-secondary btn-sm" onclick="addStandardizationRule()"> -->
+        <!-- <span class="btn-icon">+</span> Add Standardization Rule -->
+      </button>
+    </div>
+  </section>
+
+  <!-- Upload Section -->
+  <section class="upload-section">
+    <div id="dropzone" class="dropzone">
+      <div class="dropzone-content">
+        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+        <h3>Upload Your Schema File</h3>
+        <p>Drag & drop or click to browse</p>
+        <p class="file-types">Supports: CSV, TXT</p>
+      </div>
+      <input type="file" id="fileInput" accept=".csv,.txt,.xlsx,.xls,.ddl,.sql">
+    </div>
+    <div id="uploadStatus" class="upload-status"></div>
+  </section>
+
+  <!-- Content Grid -->
+  <div class="content-grid">
+    <!-- Left Panel: Fields -->
+    <section class="fields-panel">
+      <div class="panel-header">
+        <h2>📋 Table Fields</h2>
+        <button class="btn btn-secondary btn-sm" onclick="addField()">
+          <span class="btn-icon">+</span> Add Field
+        </button>
+      </div>
+      <div id="fieldContainer" class="field-container"></div>
+      <div class="error" id="errorMessage"></div>
+    </section>
+
+    <!-- Right Panel: Output -->
+    <section class="output-panel">
+      <div class="panel-header">
+        <h2>📄 Generated Outputs</h2>
+      </div>
+
+      <!-- Tabs for different outputs -->
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('sql')">SQL Statements</button>
+        <!-- <button class="tab-btn" onclick="switchTab('json')">Simple JSON</button> -->
+        <button class="tab-btn" onclick="switchTab('fullconfig')">Full Config</button>
+      </div>
+
+      <!-- SQL Tab Content -->
+      <div id="sqlTab" class="tab-content active">
+        <div class="output-section">
+          <div class="output-header">
+            <h3>SELECT Statement</h3>
+            <!-- <button class="btn-copy-small" onclick="copyOutput('selectOutput')" title="Copy">📋</button> -->
+            <button class="btn-copy-small" onclick="downloadOutput('selectOutput')" title="Copy">💾 save</button>
+          </div>
+          <pre id="selectOutput" class="code-output"></pre>
+        </div>
+
+        <div class="output-section">
+          <div class="output-header">
+            <h3>CREATE TABLE Statement</h3>
+            <!-- <button class="btn-copy-small" onclick="copyOutput('createOutput')" title="Copy">📋</button> -->
+            <button class="btn-copy-small" onclick="downloadOutput('createOutput')" title="Copy">💾 save</button>
+          </div>
+          <pre id="createOutput" class="code-output"></pre>
+        </div>
+      </div>
+
+      <!-- Simple JSON Tab Content -->
+      <div id="jsonTab" class="tab-content">
+        <div class="output-section">
+          <div class="output-header">
+            <h3>Schema Validation Config</h3>
+            <!-- <button class="btn-copy-small" onclick="copyOutput('jsonOutput')" title="Copy">📋</button> -->
+            <button class="btn-copy-small" onclick="downloadOutput('jsonOutput')" title="Copy">💾 save</button>
+          </div>
+          <pre id="jsonOutput" class="code-output json-output"></pre>
+        </div>
+      </div>
+
+      <!-- Full Config Tab Content -->
+      <div id="fullconfigTab" class="tab-content">
+        <div class="output-section">
+          <div class="output-header">
+            <h3>Complete Pipeline Configuration</h3>
+            <!-- <button class="btn-copy-small" onclick="copyOutput('fullConfigOutput')" title="Copy">📋</button> -->
+            <button class="btn-copy-small" onclick="downloadOutput('fullConfigOutput')" title="Copy">💾 save</button>
+          </div>
+          <pre id="fullConfigOutput" class="json-output"></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ YAML GENERATOR SECTION (SEPARATE AT BOTTOM) ============ -->
+  <section class="yaml-generator-section">
+    <div class="yaml-header">
+      <h2>📋 YAML Job Configuration Generator</h2>
+      <p class="subtitle">Generate Databricks job configuration in YAML format</p>
+    </div>
+
+    <!-- YAML Configuration Inputs -->
+    <div class="yaml-config-container">
+
+    </div>
+
+    <!-- YAML Output -->
+    <div class="yaml-output-container">
+      <div class="yaml-output-header">
+        <h3>Generated YAML Configuration</h3>
+        <div class="yaml-actions">
+          <!-- <button class="btn btn-secondary" onclick="copyOutput('yamlOutput')">💾 Copy YAML </button> -->
+          <button class="btn btn-secondary" onclick="downloadOutput('yamlOutput')">💾 save </button>
+        </div>
+      </div>
+      <pre id="yamlOutput" class="yaml-output-box"></pre>
+    </div>
+  </section>
+  <!-- ============ END YAML GENERATOR SECTION ============ -->
+
+</main>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+<script src="{{ url_for('static', filename='js/reference.js') }}"></script>
+</body>
+</html>

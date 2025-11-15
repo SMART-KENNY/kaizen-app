@@ -1,0 +1,37 @@
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  font-family: sans-serif;
+}
+
+.tooltip-btn {
+  padding: 10px 16px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.tooltip {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background: #1e293b;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.tooltip.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
